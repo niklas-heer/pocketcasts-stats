@@ -1,6 +1,6 @@
 # PocketCasts statistics
 
-A repo to fetch the poketcasts statistics
+A tool to fetch your poketcasts statistics an put them into Airtable
 
 ## Configuration
 
