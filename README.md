@@ -8,7 +8,7 @@ A tool to fetch your poketcasts statistics an put them into Airtable.
 
 ### Airtable
 
-For the tool to work you'll need a free Airtable account. If you don't have one - make one.
+For the tool to work you'll need a [free Airtable account](https://airtable.com/invite/r/V2q23fXk). If you don't have one - [make one](https://airtable.com/invite/r/V2q23fXk).
 
 1. Go to this example base: https://airtable.com/shryxs3YOERmBeHl1
 2. Click on `Copy base` in the top right corner
@@ -66,6 +66,6 @@ __IMPORTANT__: You cannot use the `$` symbol in the environment variables!
 
 * [airtable-python-wrapper](https://github.com/gtalarico/airtable-python-wrapper) as an awesome library to connect to Airtable
 * [furgoose/Pocket-Casts](https://github.com/furgoose/Pocket-Casts) as a good reference how to query the PocketCasts "API"
-* [Airtable](https://airtable.com) for being just an awesome tool!
+* [Airtable](https://airtable.com/invite/r/V2q23fXk) for being just an awesome tool!
 * [Gitlab](https://gitlab.com) and `GitlabCI` for being an all in one solution
 * Gitlab Scheduler for Pipelines because without it you would need a server.
