@@ -1,0 +1,3 @@
+requests
+pylint
+airtable-python-wrapper
