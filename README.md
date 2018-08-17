@@ -1,6 +1,8 @@
 # PocketCasts statistics
 
-A tool to fetch your poketcasts statistics an put them into Airtable
+A tool to fetch your poketcasts statistics an put them into Airtable.
+
+![PocketCasts statistics](https://raw.github.com/niklas-heer/pocketcasts-stats/master/.github/img/screenshot_01.png "Airtable Dashboard")
 
 ## Configuration
 
