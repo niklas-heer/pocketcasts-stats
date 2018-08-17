@@ -6,7 +6,22 @@ A tool to fetch your poketcasts statistics an put them into Airtable
 
 ### Airtable
 
-TODO
+For the tool to work you'll need a free Airtable account. If you don't have one - make one.
+
+1. Go to this example base: https://airtable.com/shryxs3YOERmBeHl1
+2. Click on `Copy base` in the top right corner
+3. Once copied delete the records
+4. Click on your profile picture in the top right corner
+5. Select `Account`
+6. On the page click on `Generate API key` on the right side under API
+    * Save the key and use it later for the `AIRTABLE_API_KEY` key
+7. Go to this page and select your copied base: https://airtable.com/api
+8. Select `AUTHENTICATION` on the left side
+9. On the right side there should be a dark area with text looking like this:
+    * `$ curl https://api.airtable.com/v0/appr9hgXPZbBPqV4n/PocketCasts?api_key=YOUR_API_KEY`
+    * Save the part between the alphanumeric string for later use (here it would be `appr9hgXPZbBPqV4n`)
+    * The saved string will be used as `AIRTABLE_BASE_ID`
+10. Follow the next steps
 
 ### Gitlab
 
