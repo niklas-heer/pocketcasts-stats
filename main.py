@@ -40,12 +40,12 @@ def get_statistics(username, password):
     return req.json()
 
 
-def enrich_with_delta(stats, previous_record):
+def enrich_with_delta(record, previous_record):
     """Enriches a record with delta time fields.
 
     Parameters
     ----------
-    stats : dict
+    record : dict
         The statistics record from PocketCasts as a dict.
     previous_record : dict
         The most current record in Airtable.
@@ -54,11 +54,11 @@ def enrich_with_delta(stats, previous_record):
     -------
     An dict with the calculated time deltas using the previous record.
     """
-    enriched_record = dict(stats)
+    enriched_record = dict(record)
 
     # Calculate time deltas for all keys in stats
-    for key,_ in stats.items():
-        enriched_record[f"Delta ({key})"] = stats[key] - previous_record['fields'][key]
+    for key,_ in record.items():
+        enriched_record[f"Delta ({key})"] = record[key] - previous_record[key]
 
     return enriched_record
 
@@ -67,15 +67,14 @@ def enrich_with_delta(stats, previous_record):
 ##############################
 
 # Get the statistics from PocketCasts
-stats = get_statistics(os.environ['POCKETCASTS_EMAIL'],os.environ['POCKETCASTS_PASSWORT'])
-
+record = get_statistics(os.environ['POCKETCASTS_EMAIL'],os.environ['POCKETCASTS_PASSWORT'])
 
 # Handle start date - we probably don't need it
-start_date = stats['timesStartedAt']
-del stats['timesStartedAt']
+start_date = record['timesStartedAt']
+del record['timesStartedAt']
 
 # Convert everything to int
-stats = dict((k,int(v)) for k,v in stats.items())
+record = dict((k,int(v)) for k,v in record.items())
 
 ##############################
 # Airtable
@@ -91,7 +90,7 @@ previous_record = airtable.get_all(view='data', maxRecords=1, sort=[("#No", 'des
 stats = enrich_with_delta(stats, previous_record[0])
 
 # Insert it into Airtable - we need to be sure we want it
-airtable.insert(stats)
+airtable.insert(record)
 
 # Print the data
-print(json.dumps(stats, sort_keys=True, indent=4))
+print(json.dumps(record, sort_keys=True, indent=4))
