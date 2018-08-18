@@ -86,8 +86,12 @@ airtable = Airtable(os.environ['AIRTABLE_BASE_ID'], os.environ['AIRTABLE_POCKETC
 # Get previous record to calculate delta(s)
 previous_record = airtable.get_all(view='data', maxRecords=1, sort=[("#No", 'desc')])
 
-# Enrich record with delta data
-stats = enrich_with_delta(stats, previous_record[0])
+# Check if it is the first time we are doing it
+if previous_record:
+    # Enrich record with delta data
+    record = enrich_with_delta(record, previous_record[0]['fields'])
+else:
+    record = enrich_with_delta(record, record)
 
 # Insert it into Airtable - we need to be sure we want it
 airtable.insert(record)
