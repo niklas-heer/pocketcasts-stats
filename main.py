@@ -69,8 +69,7 @@ def enrich_with_delta(record, previous_record):
 # Get the statistics from PocketCasts
 record = get_statistics(os.environ['POCKETCASTS_EMAIL'],os.environ['POCKETCASTS_PASSWORT'])
 
-# Handle start date - we probably don't need it
-start_date = record['timesStartedAt']
+# Delete the start date because we don't need it
 del record['timesStartedAt']
 
 # Convert everything to int
