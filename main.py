@@ -76,7 +76,7 @@ DEBUG = env.bool("DEBUG", default=False)
 ##############################
 
 # Get the statistics from PocketCasts
-record = get_statistics(os.environ['POCKETCASTS_EMAIL'],os.environ['POCKETCASTS_PASSWORT'])
+record = get_statistics(env("POCKETCASTS_EMAIL"), env("POCKETCASTS_PASSWORT"))
 
 # Delete the start date because we don't need it
 del record['timesStartedAt']
@@ -89,7 +89,7 @@ record = dict((k,int(v)) for k,v in record.items())
 ##############################
 
 # The API key for Airtable is provided by AIRTABLE_API_KEY (the lib uses that automatically)
-airtable = Airtable(os.environ['AIRTABLE_BASE_ID'], os.environ['AIRTABLE_POCKETCASTS_TABLE'])
+airtable = Airtable(env("AIRTABLE_BASE_ID"), env("AIRTABLE_POCKETCASTS_TABLE"))
 
 # Get previous record to calculate delta(s)
 previous_record = airtable.get_all(view='data', maxRecords=1, sort=[("#No", 'desc')])
