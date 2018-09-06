@@ -1,6 +1,7 @@
 import os
 import json
 import datetime
+from environs import Env
 from requests import request
 from airtable import Airtable
 
@@ -62,6 +63,14 @@ def enrich_with_delta(record, previous_record):
 
     return enriched_record
 
+
+# Handle environment variables
+env = Env()
+env.read_env()
+
+# Override in env.txt for local development
+DEBUG = env.bool("DEBUG", default=False)
+
 ##############################
 # PocketCasts
 ##############################
@@ -92,8 +101,10 @@ if previous_record:
 else:
     record = enrich_with_delta(record, record)
 
-# Insert it into Airtable - we need to be sure we want it
-airtable.insert(record)
+# Allow to omit actually writing to the database by an environment variable
+if not DEBUG:
+    # Insert it into Airtable - we need to be sure we want it
+    airtable.insert(record)
 
 # Print the data
 print(json.dumps(record, sort_keys=True, indent=4))
