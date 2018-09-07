@@ -1,5 +1,5 @@
 # See https://hub.docker.com/r/library/python/
-FROM python:3-alpine
+FROM python:3.7-alpine
 
 LABEL Name=pocketcasts-stats
 
