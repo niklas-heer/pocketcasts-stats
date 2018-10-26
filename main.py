@@ -6,7 +6,7 @@ from requests import request
 from airtable import Airtable
 
 
-def get_statistics(username, password):
+def get_statistics(username: str, password: str) -> dict:
     """Gets the user statistics from the PocketCasts API
 
     Parameters
@@ -49,7 +49,7 @@ def get_statistics(username, password):
     return req.json()
 
 
-def enrich_with_delta(record, previous_record):
+def enrich_with_delta(record: dict, previous_record: dict) -> dict:
     """Enriches a record with delta time fields.
 
     Parameters
