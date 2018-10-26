@@ -69,3 +69,4 @@ __IMPORTANT__: You cannot use the `$` symbol in the environment variables!
 * [Airtable](https://airtable.com/invite/r/V2q23fXk) for being just an awesome tool!
 * [Gitlab](https://gitlab.com) and `GitlabCI` for being an all in one solution
 * Gitlab Scheduler for Pipelines because without it you would need a server.
+* [gitmoji](https://gitmoji.carloscuesta.me/) for better understandable commits through emojis. :tada:
