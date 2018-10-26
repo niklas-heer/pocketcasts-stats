@@ -30,10 +30,18 @@ def get_statistics(username, password):
     if "message" in response:
         raise Exception("Login Failed")
     else:
-        token = response['token']
+        token = response["token"]
 
     # Get the statistics through the API
-    req = request("POST", "https://api.pocketcasts.com/user/stats/summary", data={}, headers={'authorization': f'Bearer {token}', 'origin': "https://playbeta.pocketcasts.com"})
+    req = request(
+        "POST",
+        "https://api.pocketcasts.com/user/stats/summary",
+        data={},
+        headers={
+            "authorization": f"Bearer {token}",
+            "origin": "https://playbeta.pocketcasts.com",
+        },
+    )
 
     if not req.ok:
         raise Exception("Invalid request")
@@ -58,7 +66,7 @@ def enrich_with_delta(record, previous_record):
     enriched_record = dict(record)
 
     # Calculate time deltas for all keys in stats
-    for key,_ in record.items():
+    for key, _ in record.items():
         enriched_record[f"Delta ({key})"] = record[key] - previous_record[key]
 
     return enriched_record
@@ -79,10 +87,10 @@ DEBUG = env.bool("DEBUG", default=False)
 record = get_statistics(env("POCKETCASTS_EMAIL"), env("POCKETCASTS_PASSWORT"))
 
 # Delete the start date because we don't need it
-del record['timesStartedAt']
+del record["timesStartedAt"]
 
 # Convert everything to int
-record = dict((k,int(v)) for k,v in record.items())
+record = dict((k, int(v)) for k, v in record.items())
 
 ##############################
 # Airtable
@@ -92,12 +100,12 @@ record = dict((k,int(v)) for k,v in record.items())
 airtable = Airtable(env("AIRTABLE_BASE_ID"), env("AIRTABLE_POCKETCASTS_TABLE"))
 
 # Get previous record to calculate delta(s)
-previous_record = airtable.get_all(view='data', maxRecords=1, sort=[("#No", 'desc')])
+previous_record = airtable.get_all(view="data", maxRecords=1, sort=[("#No", "desc")])
 
 # Check if it is the first time we are doing it
 if previous_record:
     # Enrich record with delta data
-    record = enrich_with_delta(record, previous_record[0]['fields'])
+    record = enrich_with_delta(record, previous_record[0]["fields"])
 else:
     record = enrich_with_delta(record, record)
 

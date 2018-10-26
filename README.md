@@ -1,8 +1,11 @@
-# PocketCasts statistics
-
-A tool to fetch your pocketcasts statistics an put them into Airtable.
-
 ![PocketCasts statistics](https://raw.github.com/niklas-heer/pocketcasts-stats/master/.github/img/screenshot_01.png "Airtable Dashboard")
+<h2 align="center">PocketCasts statistics</h2>
+
+<p align="center">
+    <a href="https://github.com/ambv/black"><img alt="Code style: black" src="https://img.shields.io/badge/code%20style-black-000000.svg"></a>
+</p>
+
+> A tool to fetch your pocketcasts statistics an put them into Airtable.
 
 ## Configuration
 
@@ -62,6 +65,10 @@ __IMPORTANT__: You cannot use the `$` symbol in the environment variables!
 3. Test the app via docker with: `make`
 4. Profit! :)
 
+## Contribution
+
+Please make sure you run [`black`](https://github.com/ambv/black) on your code before you commit it!
+
 ## Attribution
 
 * [airtable-python-wrapper](https://github.com/gtalarico/airtable-python-wrapper) as an awesome library to connect to Airtable
@@ -70,3 +77,4 @@ __IMPORTANT__: You cannot use the `$` symbol in the environment variables!
 * [Gitlab](https://gitlab.com) and `GitlabCI` for being an all in one solution
 * Gitlab Scheduler for Pipelines because without it you would need a server.
 * [gitmoji](https://gitmoji.carloscuesta.me/) for better understandable commits through emojis. :tada:
+* [black](https://github.com/ambv/black) as an awesome code formatter for Python.
