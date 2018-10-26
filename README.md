@@ -1,11 +1,11 @@
 ![PocketCasts statistics](https://raw.github.com/niklas-heer/pocketcasts-stats/master/.github/img/screenshot_01.png "Airtable Dashboard")
-<h2 align="center">PocketCasts statistics</h2>
+<h2 align="center">Pocket Casts statistics</h2>
 
 <p align="center">
     <a href="https://github.com/ambv/black"><img alt="Code style: black" src="https://img.shields.io/badge/code%20style-black-000000.svg"></a>
 </p>
 
-> A tool to fetch your pocketcasts statistics an put them into Airtable.
+This project let's you fetch your Pocket Casts statistics and put them into Airtable with [about 60 lines](#lines-of-code) of code. :tada:
 
 ## Configuration
 
@@ -69,8 +69,30 @@ __IMPORTANT__: You cannot use the `$` symbol in the environment variables!
 
 Please make sure you run [`black`](https://github.com/ambv/black) on your code before you commit it!
 
+## Lines of code
+
+This project uses about 60 lines of code according to [`cloc`](https://github.com/AlDanial/cloc):
+
+```
+$ cloc --exclude-lang=Markdown,make,Dockerfile .
+      10 text files.
+      10 unique files.
+       9 files ignored.
+
+github.com/AlDanial/cloc v 1.74  T=0.34 s (5.9 files/s, 402.8 lines/s)
+-------------------------------------------------------------------------------
+Language                     files          blank        comment           code
+-------------------------------------------------------------------------------
+Python                           1             28             43             47
+YAML                             1              4              0             15
+-------------------------------------------------------------------------------
+SUM:                             2             32             43             62
+-------------------------------------------------------------------------------
+```
+
 ## Attribution
 
+* [Pocket Casts](https://www.pocketcasts.com/) for being an awesome podcast player!
 * [airtable-python-wrapper](https://github.com/gtalarico/airtable-python-wrapper) as an awesome library to connect to Airtable
 * [furgoose/Pocket-Casts](https://github.com/furgoose/Pocket-Casts) as a good reference how to query the PocketCasts "API"
 * [Airtable](https://airtable.com/invite/r/V2q23fXk) for being just an awesome tool!
