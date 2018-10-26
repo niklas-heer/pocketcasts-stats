@@ -60,7 +60,7 @@ __IMPORTANT__: You cannot use the `$` symbol in the environment variables!
 
 ## Local testing
 
-1. Make a copy of the `env-example.txt` file and name it `env.txt`
+1. Make a copy of the `.env_example` file and name it `.env`
 2. Put in your credentials as mentioned in __Environment variables__
 3. Test the app via docker with: `make`
 4. Profit! :)

@@ -7,7 +7,6 @@ build:
 	docker build -t $(NAME) .
 
 run:
-	docker run --env-file=env.txt $(NAME)
-
+	docker run --env-file=.env $(NAME)
 
 .PHONY: all build run
