@@ -5,7 +5,7 @@
     <a href="https://github.com/ambv/black"><img alt="Code style: black" src="https://img.shields.io/badge/code%20style-black-000000.svg"></a>
 </p>
 
-This project let's you fetch your Pocket Casts statistics and put them into Airtable with [about 60 lines](#lines-of-code) of code. :tada:
+This project lets you fetch your Pocket Casts statistics and put them into Airtable with [about 60 lines](#lines-of-code) of code. :tada:
 
 ## Configuration
 
