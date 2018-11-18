@@ -5,7 +5,7 @@
     <a href="https://github.com/ambv/black"><img alt="Code style: black" src="https://img.shields.io/badge/code%20style-black-000000.svg"></a>
 </p>
 
-This project lets you fetch your Pocket Casts statistics and put them into Airtable with [about 60 lines](#lines-of-code) of code. :tada:
+This project lets you fetch your Pocket Casts statistics and put them into Airtable with [about 80 lines](#lines-of-code) of code. :tada:
 
 ## Configuration
 
@@ -71,22 +71,20 @@ Please make sure you run [`black`](https://github.com/ambv/black) on your code b
 
 ## Lines of code
 
-This project uses about 60 lines of code according to [`cloc`](https://github.com/AlDanial/cloc):
+This project uses about 80 lines of code according to [`cloc`](https://github.com/AlDanial/cloc):
 
 ```
-$ cloc --exclude-lang=Markdown,make,Dockerfile .
-      10 text files.
-      10 unique files.
-       9 files ignored.
+➜ cloc --exclude-lang=Markdown,make,Dockerfile,JSON .
+      13 text files.      13 unique files.      12 files ignored.
 
-github.com/AlDanial/cloc v 1.74  T=0.34 s (5.9 files/s, 402.8 lines/s)
+github.com/AlDanial/cloc v 1.80  T=0.02 s (105.2 files/s, 8261.0 lines/s)
 -------------------------------------------------------------------------------
 Language                     files          blank        comment           code
 -------------------------------------------------------------------------------
-Python                           1             28             43             47
+Python                           1             28             43             67
 YAML                             1              4              0             15
 -------------------------------------------------------------------------------
-SUM:                             2             32             43             62
+SUM:                             2             32             43             82
 -------------------------------------------------------------------------------
 ```
 
