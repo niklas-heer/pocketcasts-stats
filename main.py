@@ -100,7 +100,23 @@ record = dict((k, int(v)) for k, v in record.items())
 airtable = Airtable(env("AIRTABLE_BASE_ID"), env("AIRTABLE_POCKETCASTS_TABLE"))
 
 # Get previous record to calculate delta(s)
-previous_record = airtable.get_all(view="data", maxRecords=1, sort=[("#No", "desc")])
+previous_record = airtable.get_all(
+    view="data",
+    maxRecords=1,
+    sort=[("#No", "desc")],
+    fields=[
+        "Delta (timeSilenceRemoval)",
+        "Delta (timeSkipping)",
+        "Delta (timeIntroSkipping)",
+        "Delta (timeVariableSpeed)",
+        "Delta (timeListened)",
+        "timeSilenceRemoval",
+        "timeSkipping",
+        "timeIntroSkipping",
+        "timeVariableSpeed",
+        "timeListened",
+    ],
+)
 
 # Check if it is the first time we are doing it
 if previous_record:
@@ -112,7 +128,11 @@ else:
 # Allow to omit actually writing to the database by an environment variable
 if not DEBUG:
     # Insert it into Airtable - we need to be sure we want it
-    airtable.insert(record)
+    if previous_record[0]["fields"] != record and record["Delta (timeListened)"] != 0:
+        airtable.insert(record)
+        print("[INFO] Written new entry to Airtable.")
+    else:
+        print("[INFO] Skip writing empty entry.")
 
 # Print the data
 print(json.dumps(record, sort_keys=True, indent=4))
