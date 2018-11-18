@@ -97,4 +97,6 @@ SUM:                             2             32             43             82
 * [Gitlab](https://gitlab.com) and `GitlabCI` for being an all in one solution
 * Gitlab Scheduler for Pipelines because without it you would need a server.
 * [gitmoji](https://gitmoji.carloscuesta.me/) for better understandable commits through emojis. :tada:
+* [pylama](https://github.com/klen/pylama) for checking the code quality.
+* [pytest](https://github.com/pytest-dev/pytest) for being an awesome testing framework.
 * [black](https://github.com/ambv/black) as an awesome code formatter for Python.

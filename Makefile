@@ -9,4 +9,7 @@ build:
 run:
 	docker run --env-file=.env $(NAME)
 
-.PHONY: all build run
+test: build
+	docker run -ti --env-file=.env $(NAME) sh -c 'pytest'
+
+.PHONY: all build run test
