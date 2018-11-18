@@ -16,4 +16,4 @@ before_script:
 build:
   stage: build
   script:
-  - python3 ./main.py
+  - python3 ./app.py
