@@ -74,17 +74,19 @@ Please make sure you run [`black`](https://github.com/ambv/black) on your code b
 This project uses about 80 lines of code according to [`cloc`](https://github.com/AlDanial/cloc):
 
 ```
-➜ cloc --exclude-lang=Markdown,make,Dockerfile,JSON .
-      13 text files.      13 unique files.      12 files ignored.
+➜ cloc app.py .gitlab-ci.yml
+       2 text files.
+       2 unique files.
+       0 files ignored.
 
-github.com/AlDanial/cloc v 1.80  T=0.02 s (105.2 files/s, 8261.0 lines/s)
+github.com/AlDanial/cloc v 1.80  T=0.01 s (157.1 files/s, 12570.7 lines/s)
 -------------------------------------------------------------------------------
 Language                     files          blank        comment           code
 -------------------------------------------------------------------------------
-Python                           1             28             43             67
+Python                           1             28             43             70
 YAML                             1              4              0             15
 -------------------------------------------------------------------------------
-SUM:                             2             32             43             82
+SUM:                             2             32             43             85
 -------------------------------------------------------------------------------
 ```
 
