@@ -3,6 +3,10 @@
 
 <p align="center">
     <a href="https://github.com/ambv/black"><img alt="Code style: black" src="https://img.shields.io/badge/code%20style-black-000000.svg"></a>
+    <a href="https://travis-ci.org/niklas-heer/pocketcasts-stats"><img alt="Build Status" src="https://travis-ci.org/niklas-heer/pocketcasts-stats.svg?branch=master"></a>
+    <a href="https://codecov.io/gh/niklas-heer/pocketcasts-stats"><img src="https://codecov.io/gh/niklas-heer/pocketcasts-stats/branch/master/graph/badge.svg" /></a>
+    <a href="https://pyup.io/repos/github/niklas-heer/pocketcasts-stats/"><img src="https://pyup.io/repos/github/niklas-heer/pocketcasts-stats/shield.svg" alt="Updates" /></a>
+    <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="License: MIT" /></a>
 </p>
 
 This project lets you fetch your Pocket Casts statistics and put them into Airtable with [about 80 lines](#lines-of-code) of code. :tada:
