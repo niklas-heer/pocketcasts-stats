@@ -12,4 +12,10 @@ run:
 test: build
 	docker run -ti --env-file=.env $(NAME) sh -c 'pytest'
 
-.PHONY: all build run test
+coverage: build
+	docker run -ti --env-file=.env $(NAME) sh -c 'pytest --cov=./'
+
+report:
+	pytest --cov-report=xml:cov.xml --cov=./
+
+.PHONY: all build run test coverage report
