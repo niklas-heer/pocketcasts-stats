@@ -24,7 +24,7 @@ def get_statistics(username: str, password: str) -> dict:
     data = (
         f'{{"email":"{username}","password":"{password}","scope":"webplayer"}}'
     )
-    headers = {"origin": "https://playbeta.pocketcasts.com"}
+    headers = {"origin": "https://play.pocketcasts.com"}
     response = request("POST", login_url, data=data, headers=headers).json()
 
     if "message" in response:
@@ -39,7 +39,7 @@ def get_statistics(username: str, password: str) -> dict:
         data={},
         headers={
             "authorization": f"Bearer {token}",
-            "origin": "https://playbeta.pocketcasts.com",
+            "origin": "https://play.pocketcasts.com",
         },
     )
 
