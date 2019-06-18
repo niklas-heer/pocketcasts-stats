@@ -36,7 +36,7 @@ def get_statistics(username: str, password: str) -> dict:
     req = request(
         "POST",
         "https://api.pocketcasts.com/user/stats/summary",
-        data={},
+        data=("{}"),
         headers={
             "Authorization": f"Bearer {token}",
             "Origin": "https://play.pocketcasts.com",
