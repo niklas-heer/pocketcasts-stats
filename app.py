@@ -79,6 +79,7 @@ env.read_env()
 
 # Override in env.txt for local development
 DEBUG = env.bool("DEBUG", default=False)
+INFO = env.bool("INFO", default=False)
 
 ##############################
 # PocketCasts
@@ -134,9 +135,9 @@ if not DEBUG:
         and record["Delta (timeListened)"] != 0
     ):
         airtable.insert(record)
-        print("[INFO] Written new entry to Airtable.")
+        if INFO: print("[INFO] Written new entry to Airtable.")
     else:
-        print("[INFO] Skip writing empty entry.")
+        if INFO: print("[INFO] Skip writing empty entry.")
 
 # Print the data
 print(json.dumps(record, sort_keys=True, indent=4))
