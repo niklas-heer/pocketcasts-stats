@@ -124,20 +124,29 @@ previous_record = airtable.get_all(
 if previous_record:
     # Enrich record with delta data
     record = enrich_with_delta(record, previous_record[0]["fields"])
+
+    # Allow to omit actually writing to the database by an environment variable
+    if not DEBUG:
+        # Insert it into Airtable - we need to be sure we want it
+        if (
+            previous_record[0]["fields"] != record
+            and record["Delta (timeListened)"] != 0
+        ):
+            airtable.insert(record)
+            if INFO:
+                print("[INFO] Written new entry to Airtable.")
+        else:
+            if INFO:
+                print("[INFO] Skip writing empty entry.")
 else:
+    # We are inserting for the first time
     record = enrich_with_delta(record, record)
 
-# Allow to omit actually writing to the database by an environment variable
-if not DEBUG:
-    # Insert it into Airtable - we need to be sure we want it
-    if (
-        previous_record[0]["fields"] != record
-        and record["Delta (timeListened)"] != 0
-    ):
+    if not DEBUG:
         airtable.insert(record)
-        if INFO: print("[INFO] Written new entry to Airtable.")
-    else:
-        if INFO: print("[INFO] Skip writing empty entry.")
+        if INFO:
+            print("[INFO] Written the first entry to Airtable.")
+
 
 # Print the data
 print(json.dumps(record, sort_keys=True, indent=4))
