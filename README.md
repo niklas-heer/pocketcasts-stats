@@ -83,7 +83,7 @@ For this to work you'll need a free Gitlab.com account. If you don't have one - 
 -   `AIRTABLE_API_KEY` - your account API key to access Airtable
 -   `AIRTABLE_POCKETCASTS_TABLE` - the table to store the PocketCasts information in
 
-**IMPORTANT**: You cannot use the `$` symbol in the environment variables!
+**IMPORTANT**: You cannot use special characters like `.!$/\|` symbols in the environment variables!
 
 ## Local testing
 
