@@ -132,3 +132,5 @@ This project uses about 80 lines of code according to [`cloc`](https://github.co
 -   [codecov](https://codecov.io) for showing the code coverage and help improve it.
 -   [pyup](https://pyup.io/) for helping to keep this project secure.
 -   [codacy](https://app.codacy.com) for helping improving the code quality.
+
+[ ~ Dependencies scanned by PyUp.io ~ ]
