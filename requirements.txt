@@ -1,4 +1,4 @@
-requests==2.23.0
+requests==2.24.0
 airtable-python-wrapper==0.13.0
 environs==8.0.0
 pytest==5.4.3
