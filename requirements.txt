@@ -1,5 +1,5 @@
 requests==2.25.1
 airtable-python-wrapper==0.15.1
-environs==9.3.0
+environs==9.3.1
 pytest==6.2.2
 pytest-cov==2.11.1
