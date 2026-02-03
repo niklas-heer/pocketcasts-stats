@@ -24,7 +24,35 @@ jobs:
       - name: Install dependencies
         run: uv sync --frozen
 
+      - name: Check required secrets
+        id: secrets
+        env:
+          POCKETCASTS_EMAIL: ${{ secrets.POCKETCASTS_EMAIL }}
+          POCKETCASTS_PASSWORD: ${{ secrets.POCKETCASTS_PASSWORD }}
+          AIRTABLE_API_KEY: ${{ secrets.AIRTABLE_API_KEY }}
+          AIRTABLE_BASE_ID: ${{ secrets.AIRTABLE_BASE_ID }}
+          AIRTABLE_POCKETCASTS_TABLE: ${{ secrets.AIRTABLE_POCKETCASTS_TABLE }}
+        run: |
+          missing=0
+          for name in \
+            POCKETCASTS_EMAIL \
+            POCKETCASTS_PASSWORD \
+            AIRTABLE_API_KEY \
+            AIRTABLE_BASE_ID \
+            AIRTABLE_POCKETCASTS_TABLE; do
+            if [ -z "${!name}" ]; then
+              echo "Missing required secret: $name"
+              missing=1
+            fi
+          done
+          echo "missing=$missing" >> "$GITHUB_OUTPUT"
+
+      - name: Skip sync (missing secrets)
+        if: steps.secrets.outputs.missing != '0'
+        run: echo "Skipping sync because required secrets are not configured."
+
       - name: Run sync
+        if: steps.secrets.outputs.missing == '0'
         env:
           POCKETCASTS_EMAIL: ${{ secrets.POCKETCASTS_EMAIL }}
           POCKETCASTS_PASSWORD: ${{ secrets.POCKETCASTS_PASSWORD }}
