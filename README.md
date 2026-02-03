@@ -54,6 +54,7 @@ For the tool to work you'll need a [free Airtable account](https://airtable.com/
    - `AIRTABLE_POCKETCASTS_TABLE`
 
 4. The workflow runs automatically every 2 hours. You can also trigger it manually from the `Actions` tab.
+   If any of the secrets above are missing, the sync workflow will skip the run.
 
 ### GitLab CI (Alternative)
 
